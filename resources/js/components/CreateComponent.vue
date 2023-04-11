@@ -35,12 +35,16 @@ export default {
     },
     loading: false,
   }),
+  emits: ['createdPerson'],
   methods: {
     createPerson() {
       this.loading = true;
       axios
         .post("/api/people", this.form)
-        .then(() => (this.form = {}))
+        .then((res) => {
+          this.$emit('createdPerson', res.data)
+          this.form = {}
+        })
         .catch((err) => console.log(err))
         .finally(() => (this.loading = false));
     },

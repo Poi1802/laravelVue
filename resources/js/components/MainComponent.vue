@@ -3,9 +3,9 @@
     <Header />
     <hr />
     <div class="content mt-4">
-      <CreateComponent />
+      <CreateComponent @created-person="addPerson" />
       <hr />
-      <Table />
+      <Table ref="table" />
     </div>
   </div>
 </template>
@@ -21,6 +21,13 @@ export default {
     Header,
     Table,
   },
-  mounted() { },
+  mounted() {
+
+  },
+  methods: {
+    addPerson(person) {
+      this.$refs.table.people.push(person)
+    }
+  }
 };
 </script>
