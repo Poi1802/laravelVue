@@ -9,10 +9,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link active" aria-current="page" to="/posts">Posts</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/tags">Tags</router-link>
+            <router-link class="nav-link active" aria-current="page" :to="{ name: 'posts.index' }">Posts</router-link>
           </li>
         </ul>
       </div>

@@ -7,11 +7,13 @@ const routes = [
     },
     {
         path: "/posts",
-        component: () => import("./components/Posts.vue"),
+        component: () => import("./components/Posts/Index.vue"),
+        name: "posts.index",
     },
     {
-        path: "/tags",
-        component: () => import("./components/Tags.vue"),
+        path: "/posts/create",
+        component: () => import("./components/Posts/Create.vue"),
+        name: "posts.create",
     },
 ];
 
