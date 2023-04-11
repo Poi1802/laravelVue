@@ -18,8 +18,9 @@ window.axios = axios;
 
 const app = createApp({});
 
-import ExampleComponent from "./components/MainComponent.vue";
-app.component("main-component", ExampleComponent);
+import App from "./components/App.vue";
+import router from "./router";
+app.component("App", App);
 
 /**
  * The following block of code may be used to automatically register your
@@ -39,4 +40,4 @@ app.component("main-component", ExampleComponent);
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 
-app.mount("#app");
+app.use(router).mount("#app");
