@@ -14,7 +14,7 @@
         <input type="text" v-model="form.job" class="form-control" id="formGroupExampleInput2" placeholder="Работа" />
       </div>
       <div class="mb-3">
-        <button @click="createPerson" class="btn btn-primary">
+        <button :disabled="isDisabled" @click="createPerson" class="btn btn-primary">
           <div v-if="loading" class="spinner-border spinner-border-sm" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
@@ -35,6 +35,11 @@ export default {
     },
     loading: false,
   }),
+  computed: {
+    isDisabled() {
+      return !(this.form.name && this.form.age && this.form.job)
+    }
+  },
   methods: {
     createPerson() {
       this.loading = true;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    KEK
+    Main
   </div>
 </template>
 

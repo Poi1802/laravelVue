@@ -15,6 +15,11 @@ const routes = [
         component: () => import("./components/Posts/Create.vue"),
         name: "posts.create",
     },
+    {
+        path: "/posts/:id",
+        component: () => import("./components/Posts/Show.vue"),
+        name: "posts.show",
+    },
 ];
 
 const router = createRouter({

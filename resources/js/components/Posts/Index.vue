@@ -20,25 +20,22 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="person in people">
-          <th scope="row">{{ person.id }}</th>
-          <td>{{ person.name }}</td>
-          <td>{{ person.age }}</td>
-          <td>{{ person.job }}</td>
-          <td>
-            <button class="btn btn-primary">Change</button>
-            <button class="btn btn-danger mx-2">Delete</button>
-          </td>
-        </tr>
+        <TableRow v-for="person in people" :key="person.id" :person="person" />
       </tbody>
     </table>
   </div>
 </template>
 
 <script>
+import TableRow from './TableRow.vue'
+
 export default {
+  components: {
+    TableRow
+  },
   data: () => ({
     people: [],
+    editId: null,
     loading: false
   }),
   mounted() {
@@ -48,8 +45,7 @@ export default {
     getPeople() {
       this.loading = true
       axios.get('/api/people').then(res => this.people = res.data).catch(err => console.log(err)).finally(() => this.loading = false)
-    },
-
+    }
   }
 }
 </script>
